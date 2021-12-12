@@ -1,10 +1,10 @@
-const { join } = require('path');
-const { axios, checkCommand, logger, cqcode } = require('kokkoro');
+const axios = require('axios');
+const { checkCommand, logger, message, getOption } = require('kokkoro-core');
 
 // 获取 GitHub 相关 og 信息
-function getGithub(event, setting) {
-  const { github } = setting;
-  const { raw_message, reply } = event;
+function getGithub(event, option) {
+  const { github } = option;
+  const { raw_message } = event;
   const [url] = raw_message.match(/https:\/\/github.com\/[\w\/]*/g);
 
   github && axios.get(url)
@@ -13,8 +13,8 @@ function getGithub(event, setting) {
       const { image } = getMetaOg(data);
 
       // 获取图片失败不用 catch 处理
-      cqcode.image(image).then(response => {
-        reply(response);
+      message.image(image).then(response => {
+        event.reply(response);
       })
     })
     .catch(error => {
@@ -43,16 +43,20 @@ const command = {
   getGithub: /https:\/\/github.com\//,
 }
 
-const default_setting = {
+const default_option = {
   github: true,
 }
 
 function listener(event) {
-  const dir = join(this.dir, 'config.json');
-  const setting = require(dir)[event.group_id].setting.og;
+  const { uin } = this;
+  const { group_id } = event;
+
+  const option = getOption(uin, group_id, 'og');
   const mission = checkCommand(command, event.raw_message);
 
-  setting.switch && eval(`${mission}.bind(this)(event, setting)`);
+  if (option.switch) {
+    mission && eval(`${mission}.bind(this)(event, option)`);
+  }
 }
 
 function enable(bot) {
@@ -64,5 +68,5 @@ function disable(bot) {
 }
 
 module.exports = {
-  enable, disable, default_setting
+  enable, disable, default_option
 }

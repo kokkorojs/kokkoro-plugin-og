@@ -1,25 +1,22 @@
 {
-  "name": "kokkoro-plugin-og",
+  "name": "kokkoro-og",
   "version": "0.0.1",
   "description": "发送网页 html 的 og 信息",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dcyuki/kokkoro-plugin-og.git"
+    "url": "git+https://github.com/kokkorojs/kokkoro-og.git"
   },
   "keywords": [
-    "qq",
-    "bot",
-    "qqbot",
     "kokkoro"
   ],
-  "author": "dc_yuki",
+  "author": "rumicchi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dcyuki/kokkoro-plugin-og/issues"
+    "url": "https://github.com/kokkorojs/kokkoro-og/issues"
   },
-  "homepage": "https://github.com/dcyuki/kokkoro-plugin-og#readme",
-  "devDependencies": {
-    "kokkoro": "0.0.3"
+  "homepage": "https://github.com/kokkorojs/kokkoro-og#readme",
+  "dependencies": {
+    "axios": "^0.24.0"
   }
 }
