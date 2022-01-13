@@ -48,13 +48,10 @@ const default_option = {
 }
 
 function listener(event) {
-  const { uin } = this;
-  const { group_id } = event;
-
-  const option = getOption(uin, group_id, 'og');
+  const option = getOption(event);
   const mission = checkCommand(command, event.raw_message);
 
-  if (option.switch) {
+  if (option.apply) {
     mission && eval(`${mission}.bind(this)(event, option)`);
   }
 }

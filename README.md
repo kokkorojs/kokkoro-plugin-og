@@ -13,5 +13,12 @@ npm i kokkoro-og
 ```
 
 在 [kokkoro](https://github.com/dcyuki/kokkoro) 成功运行并登录后，发送 `>enable og` 即可启用插件
+使用 `>og <key> <value>` 可修改当前群聊的插件参数，例如关闭 GitHub 信息发送 `>og github false`
 
-※ 请确保 `setting.json` 中的 `switch` 属性设置为 `true`
+## 参数
+
+``` json
+"option": {
+  "github": true
+}
+```

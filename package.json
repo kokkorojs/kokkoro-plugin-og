@@ -1,6 +1,6 @@
 {
   "name": "kokkoro-og",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "发送网页 html 的 og 信息",
   "main": "index.js",
   "repository": {
@@ -10,7 +10,7 @@
   "keywords": [
     "kokkoro"
   ],
-  "author": "rumicchi",
+  "author": "dc_yuki",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kokkorojs/kokkoro-og/issues"
