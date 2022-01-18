@@ -17,8 +17,9 @@ npm i kokkoro-og
 
 ## 参数
 
-``` json
-"option": {
-  "github": true
+``` javascript
+const option = {
+  // 是否发送 github og 信息
+  github: true
 }
 ```

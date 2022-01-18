@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { checkCommand, logger, message, getOption } = require('kokkoro-core');
+const { checkCommand, logger, section, getOption } = require('kokkoro-core');
 
 // 获取 GitHub 相关 og 信息
 function getGithub(event, option) {
@@ -13,7 +13,7 @@ function getGithub(event, option) {
       const { image } = getMetaOg(data);
 
       // 获取图片失败不用 catch 处理
-      message.image(image).then(response => {
+      section.image(image).then(response => {
         event.reply(response);
       })
     })

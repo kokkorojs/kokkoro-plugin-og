@@ -1,6 +1,6 @@
 {
   "name": "kokkoro-og",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "发送网页 html 的 og 信息",
   "main": "index.js",
   "repository": {
